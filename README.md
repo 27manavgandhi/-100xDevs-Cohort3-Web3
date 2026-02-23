@@ -25,3 +25,13 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📝 [Assignment](./Week%2001%20-%20Orientation/1.1%20-%20Orientation%20Web3/1.1%20-%20Orientation%20Web3%20Assignment.md)
   - 🖥️ [Assignment Solution](./Week%2001%20-%20Orientation/1.1%20-%20Orientation%20Web3/Assignment%20Solution/)
 
+
+### 📚 [**Day 02 - Public Key Cryptography**](./Week%2002%20-%20Public%20Key%20Cryptography/)
+
+- 💻 [**2.1 - Public Key Cryptography**](./Week%2002%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography/)
+
+  - 👨‍💻 [Lecture Codes](./Week%2002%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Week%2002%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography%20Slides%20&%20Notes.md)
+  - 📝 [Assignment](./Week%2002%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography%20Assignment.md)
+  - 🖥️ [Assignment Solution](./Week%2002%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography/Assignment%20Solution/)
+
