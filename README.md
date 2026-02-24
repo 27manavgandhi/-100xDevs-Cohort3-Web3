@@ -35,3 +35,13 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📝 [Assignment](./Week%2002%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography%20Assignment.md)
   - 🖥️ [Assignment Solution](./Week%2002%20-%20Public%20Key%20Cryptography/2.1%20-%20Public%20Key%20Cryptography/Assignment%20Solution/)
 
+
+### 📚 [**Day 03 - Web Based Wallet & RPCs**](./Day%2003%20-%20Web%20Based%20Wallet%20%26%20RPCs/)
+
+- 💻 [**3.1 - Web Based Wallet & RPCs**](./Day%2003%20-%20Web%20Based%20Wallet%20%26%20RPCs/3.1%20-%20Web%20Based%20Wallet%20%26%20RPCs/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2003%20-%20Web%20Based%20Wallet%20%26%20RPCs/3.1%20-%20Web%20Based%20Wallet%20%26%20RPCs/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2003%20-%20Web%20Based%20Wallet%20%26%20RPCs/3.1%20-%20Web%20Based%20Wallet%20%26%20RPCs/3.1%20-%20Web%20Based%20Wallet%20%26%20RPCs%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2003%20-%20Web%20Based%20Wallet%20%26%20RPCs/3.1%20-%20Web%20Based%20Wallet%20%26%20RPCs/3.1%20-%20Web%20Based%20Wallet%20%26%20RPCs%20Assignment.md)
+  - 🖥️ [Assignment Solution](./Day%2003%20-%20Web%20Based%20Wallet%20%26%20RPCs/3.1%20-%20Web%20Based%20Wallet%20%26%20RPCs/Assignment%20Solution/)
+  - 🌐 [Live Demo — OptiMask Wallet](https://optimask-wallet-chi.vercel.app/)
