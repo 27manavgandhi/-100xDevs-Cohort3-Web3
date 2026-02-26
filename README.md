@@ -54,3 +54,14 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2004%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens/4.1%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2004%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens/4.1%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens/4.1%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2004%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens/4.1%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens/4.1%20-%20Solana%20Jargon%2C%20Programming%20Model%20%26%20Tokens%20Assignment.md)
+
+
+### 📚 [**Day 05 - Wallet Adapter & dApp Development**](./Day%2005%20-%20Wallet%20Adapter%20%26%20dApp%20Development/)
+
+- 💻 [**5.1 - Wallet Adapter & dApp Development**](./Day%2005%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2005%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2005%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2005%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development%20Assignment.md)
+  - 🖥️ [Assignment Solution](https://github.com/27manavgandhi/Solana-Web3-Wallet-Interaction-App)
+  - 🌐 [Live Demo — Solana Web3 Wallet Interaction App](https://github.com/27manavgandhi/Solana-Web3-Wallet-Interaction-App)
