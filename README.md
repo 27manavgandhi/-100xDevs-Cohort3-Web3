@@ -65,3 +65,14 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📝 [Assignment](./Day%2005%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development/5.1%20-%20Wallet%20Adapter%20%26%20dApp%20Development%20Assignment.md)
   - 🖥️ [Assignment Solution](https://github.com/27manavgandhi/Solana-Web3-Wallet-Interaction-App)
   - 🌐 [Live Demo — Solana Web3 Wallet Interaction App](https://github.com/27manavgandhi/Solana-Web3-Wallet-Interaction-App)
+
+
+### 📚 [**Day 06 - Token Launchpad in React**](./Day%2006%20-%20Token%20Launchpad%20in%20React/)
+
+- 💻 [**6.1 - Token Launchpad in React**](./Day%2006%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2006%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2006%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2006%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React%20Assignment.md)
+  - 🖥️ [Assignment Solution](https://github.com/27manavgandhi/solana-token-Launchpad)
+  - 🌐 [Live Demo — Solana Token Launchpad](https://github.com/27manavgandhi/solana-token-Launchpad)
