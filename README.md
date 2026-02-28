@@ -76,3 +76,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📝 [Assignment](./Day%2006%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React/6.1%20-%20Token%20Launchpad%20in%20React%20Assignment.md)
   - 🖥️ [Assignment Solution](https://github.com/27manavgandhi/solana-token-Launchpad)
   - 🌐 [Live Demo — Solana Token Launchpad](https://github.com/27manavgandhi/solana-token-Launchpad)
+
+
+### 📚 [**Day 07 - Ownership, Authorities, Programs & PDAs**](./Day%2007%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/)
+
+- 💻 [**7.1 - Ownership, Authorities, Programs & PDAs**](./Day%2007%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/7.1%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2007%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/7.1%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2007%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/7.1%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/7.1%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2007%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/7.1%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs/7.1%20-%20Ownership%2C%20Authorities%2C%20Programs%20%26%20PDAs%20Assignment.md)
