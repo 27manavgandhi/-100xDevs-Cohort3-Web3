@@ -94,3 +94,11 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2008%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps/8.1%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2008%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps/8.1%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps/8.1%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2008%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps/8.1%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps/8.1%20-%20Solana%20Blockchain%20Deep%20Dive%2C%20Token%20Program%2C%20PDAs%20%26%20DApps%20Assignment.md)
+
+### 📚 [**Day 09 - DEX, CEX, Orderbooks, AMM & DeFi Jargon**](./Day%2009%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/)
+
+- 💻 [**9.1 - DEX, CEX, Orderbooks, AMM & DeFi Jargon**](./Day%2009%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/9.1%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2009%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/9.1%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2009%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/9.1%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/9.1%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2009%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/9.1%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon/9.1%20-%20DEX%2C%20CEX%2C%20Orderbooks%2C%20AMM%20%26%20DeFi%20Jargon%20Assignment.md)
