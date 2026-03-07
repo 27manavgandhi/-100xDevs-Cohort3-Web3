@@ -136,3 +136,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2013%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST/13.1%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2013%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST/13.1%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST/13.1%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2013%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST/13.1%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST/13.1%20-%20Liquid%20Staking%20Tokens%2C%20Validators%2C%20Indexer%20%26%20Building%20a%20Centralized%20LST%20Assignment.md)
+
+
+### 📚 [**Day 14 - BonkBot, Secure Private Key Management & Cloud Wallet Service**](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/)
+
+- 💻 [**14.1 - BonkBot, Secure Private Key Management & Cloud Wallet Service**](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service%20Assignment.md)
