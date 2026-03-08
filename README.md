@@ -145,3 +145,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2014%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service/14.1%20-%20BonkBot%2C%20Secure%20Private%20Key%20Management%20%26%20Cloud%20Wallet%20Service%20Assignment.md)
+
+### 📚 [**Day 15 - Solidity, Smart Contracts & EVM**](./Day%2015%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/)
+
+- 💻 [**15.1 - Solidity, Smart Contracts & EVM**](./Day%2015%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2015%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2015%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2015%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM%20Assignment.md)
+
