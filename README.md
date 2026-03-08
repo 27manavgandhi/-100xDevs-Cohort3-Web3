@@ -154,3 +154,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📖 [Slides & Notes](./Day%2015%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2015%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM/15.1%20-%20Solidity%2C%20Smart%20Contracts%20%26%20EVM%20Assignment.md)
 
+
+### 📚 [**Day 16 - Interfaces, Cross-Contract Invocation & Payable**](./Day%2016%20-%20Interfaces%2C%20CCI%20%26%20Payable/)
+
+- 💻 [**16.1 - Interfaces, CCI & Payable**](./Day%2016%20-%20Interfaces%2C%20CCI%20%26%20Payable/16.1%20-%20Interfaces%2C%20CCI%20%26%20Payable/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2016%20-%20Interfaces%2C%20CCI%20%26%20Payable/16.1%20-%20Interfaces%2C%20CCI%20%26%20Payable/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2016%20-%20Interfaces%2C%20CCI%20%26%20Payable/16.1%20-%20Interfaces%2C%20CCI%20%26%20Payable/16.1%20-%20Interfaces%2C%20CCI%20%26%20Payable%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2016%20-%20Interfaces%2C%20CCI%20%26%20Payable/16.1%20-%20Interfaces%2C%20CCI%20%26%20Payable/16.1%20-%20Interfaces%2C%20CCI%20%26%20Payable%20Assignment.md)
+
