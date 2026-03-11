@@ -171,3 +171,11 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📖 [Slides & Notes](./Day%2017%20-%20ERC-20%20Tokens%20%26%20Custom%20Tokens/17.1%20-%20ERC-20%20Tokens%20%26%20Custom%20Tokens/17.1%20-%20ERC-20%20Tokens%20%26%20Custom%20Tokens%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2017%20-%20ERC-20%20Tokens%20%26%20Custom%20Tokens/17.1%20-%20ERC-20%20Tokens%20%26%20Custom%20Tokens/17.1%20-%20ERC-20%20Tokens%20%26%20Custom%20Tokens%20Assignment.md)
 
+### 📚 [**Day 18 - Local Development Tools (Ganache, Truffle, Hardhat & Foundry)**](./Day%2018%20-%20Local%20Development%20Tools/)
+
+- 💻 [**18.1 - Ganache, Truffle, Hardhat & Foundry**](./Day%2018%20-%20Local%20Development%20Tools/18.1%20-%20Ganache%2C%20Truffle%2C%20Hardhat%20%26%20Foundry/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2018%20-%20Local%20Development%20Tools/18.1%20-%20Ganache%2C%20Truffle%2C%20Hardhat%20%26%20Foundry/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2018%20-%20Local%20Development%20Tools/18.1%20-%20Ganache%2C%20Truffle%2C%20Hardhat%20%26%20Foundry/18.1%20-%20Ganache%2C%20Truffle%2C%20Hardhat%20%26%20Foundry%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2018%20-%20Local%20Development%20Tools/18.1%20-%20Ganache%2C%20Truffle%2C%20Hardhat%20%26%20Foundry/18.1%20-%20Ganache%2C%20Truffle%2C%20Hardhat%20%26%20Foundry%20Assignment.md)
+
