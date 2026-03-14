@@ -189,7 +189,6 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📝 [Assignment](./Day%2019%20-%20Blockchain%20Bridges/19.1%20-%20Blockchain%20Bridges/19.1%20-%20Blockchain%20Bridges%20Assignment.md)
 
 
-# README Update Section for Day 20
 
 ### 📚 [**Day 20 - Building a Web3 Bridge**](./Day%2020%20-%20Building%20a%20Web3%20Bridge/)
 
@@ -198,4 +197,13 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2020%20-%20Building%20a%20Web3%20Bridge/20.1%20-%20Building%20a%20Web3%20Bridge/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2020%20-%20Building%20a%20Web3%20Bridge/20.1%20-%20Building%20a%20Web3%20Bridge/20.1%20-%20Building%20a%20Web3%20Bridge%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2020%20-%20Building%20a%20Web3%20Bridge/20.1%20-%20Building%20a%20Web3%20Bridge/20.1%20-%20Building%20a%20Web3%20Bridge%20Assignment.md)
+
+
+### 📚 [**Day 21 - Client-Side ETH**](./Day%2021%20-%20Client-Side%20ETH/)
+
+- 💻 [**21.1 - Client-Side ETH**](./Day%2021%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2021%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2021%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2021%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH%20Assignment.md)
 
