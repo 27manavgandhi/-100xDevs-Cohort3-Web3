@@ -207,3 +207,19 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📖 [Slides & Notes](./Day%2021%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2021%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH/21.1%20-%20Client-Side%20ETH%20Assignment.md)
 
+
+### 📚 [**Day 22 - Upgradable Contracts**](./Day%2022%20-%20Upgradable%20Contracts/)
+
+- 💻 [**22.1 - Upgradable Contracts**](./Day%2022%20-%20Upgradable%20Contracts/22.1%20-%20Upgradable%20Contracts/)
+
+  - 📖 [Slides & Notes](./Day%2022%20-%20Upgradable%20Contracts/22.1%20-%20Upgradable%20Contracts/22.1%20-%20Upgradable%20Contracts%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment & Code Examples](./Day%2022%20-%20Upgradable%20Contracts/22.1%20-%20Upgradable%20Contracts/Assignment_and_Codes.md)
+
+
+
+### 📚 [**Day 23 - Upgradable Staking Contract**](./Day%2023%20-%20Upgradable%20Staking%20Contract/)
+
+- 💻 [**23.1 - Upgradable Staking Contract**](./Day%2023%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract/)
+
+  - 📖 [Slides & Notes](./Day%2023%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2023%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract%20Assignment.md)
