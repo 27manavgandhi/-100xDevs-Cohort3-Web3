@@ -223,3 +223,13 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
 
   - 📖 [Slides & Notes](./Day%2023%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2023%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract/23.1%20-%20Upgradable%20Staking%20Contract%20Assignment.md)
+
+
+
+
+### 📚 [**Day 24 - End to End Contract with FE**](./Day%2024%20-%20End%20to%20End%20Contract%20with%20FE/)
+
+- 💻 [**24.1 - End to End Contract with FE**](./Day%2024%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE/)
+
+  - 📖 [Slides & Notes](./Day%2024%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2024%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE%20Assignment.md)
