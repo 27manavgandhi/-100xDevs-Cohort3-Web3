@@ -233,3 +233,14 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
 
   - 📖 [Slides & Notes](./Day%2024%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2024%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE/24.1%20-%20End%20to%20End%20Contract%20with%20FE%20Assignment.md)
+
+
+
+
+### 📚 [**Day 25 - Rust for Solana Contracts**](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/)
+
+- 💻 [**25.1 - Rust for Solana Contracts**](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts/)
+
+  - 📖 [Slides & Notes - Part 1](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts%20Slides%20%26%20Notes%20-%20Part%201.md)
+  - 📖 [Slides & Notes - Part 2](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts%20Slides%20%26%20Notes%20-%20Part%202.md)
+  - 📝 [Assignment](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts%20Assignment.md)
