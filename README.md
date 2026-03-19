@@ -244,3 +244,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📖 [Slides & Notes - Part 1](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts%20Slides%20%26%20Notes%20-%20Part%201.md)
   - 📖 [Slides & Notes - Part 2](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts%20Slides%20%26%20Notes%20-%20Part%202.md)
   - 📝 [Assignment](./Day%2025%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts/25.1%20-%20Rust%20for%20Solana%20Contracts%20Assignment.md)
+
+
+
+### 📚 [**Day 26 - PDAs, Bumps and invoke_signed**](./Day%2026%20-%20PDAs%20Bumps%20and%20invoke_signed/)
+
+- 💻 [**26.1 - PDAs, Bumps and invoke_signed**](./Day%2026%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed/)
+
+  - 📖 [Slides & Notes](./Day%2026%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2026%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed%20Assignment.md)
