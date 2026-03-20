@@ -1,0 +1,300 @@
+# Lecture Code - 3_self_healing_application.yaml
+# Topic: Self-Healing and Drift Detection in ArgoCD
+# Day 27.1 - GitOps and ArgoCD
+#
+# To use: kubectl apply -f 3_self_healing_application.yaml
+
+# ── What is Self-Healing? ─────────────────────────────────────────────────────
+#
+# Self-healing is ArgoCD's ability to detect and automatically correct "drift" —
+# differences between desired state (Git) and actual state (cluster).
+#
+# Real-Life Analogy:
+#   Like a thermostat that maintains room temperature. If someone opens a window
+#   (manual change), the thermostat detects the temperature drop (drift) and
+#   automatically adjusts the heating to restore the set temperature (Git state).
+#
+# Why is self-healing important?
+#   1. PREVENTS DRIFT: Manual kubectl changes are automatically reverted
+#   2. ENFORCES GITOPS: Git remains single source of truth
+#   3. PREVENTS CONFIGURATION CHAOS: No "works on my machine" issues
+#   4. SECURITY: Prevents unauthorized manual changes
+#   5. CONSISTENCY: All environments match their Git definitions exactly
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SELF-HEALING APPLICATION
+# ══════════════════════════════════════════════════════════════════════════════
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: self-healing-app
+  namespace: argocd
+  labels:
+    environment: production
+    self-heal: enabled
+
+spec:
+  project: default
+
+  # ── SOURCE ──────────────────────────────────────────────────────────────────
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+
+  # ── DESTINATION ─────────────────────────────────────────────────────────────
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: production
+
+  # ── SYNC POLICY (FULL AUTOMATION) ───────────────────────────────────────────
+  syncPolicy:
+    automated:
+      # ── PRUNE: Delete resources not in Git ─────────────────────────────────
+      # When enabled:
+      #   - If you delete a file from Git, ArgoCD deletes the resource from cluster
+      #   - Keeps cluster clean, prevents orphaned resources
+      #   - Example: Remove old-service.yaml from Git → service deleted from cluster
+      prune: true
+      
+      # ── SELF-HEAL: Revert manual changes ───────────────────────────────────
+      # When enabled:
+      #   - ArgoCD continuously compares cluster state with Git state
+      #   - If manual changes detected (drift), automatically reverts them
+      #   - Runs every 5 seconds by default
+      #   - Example: kubectl scale deployment → ArgoCD reverts to Git replica count
+      selfHeal: true
+      
+      # ── ALLOW EMPTY: Sync even if directory is empty ───────────────────────
+      # Useful for cleanup scenarios where you want to delete all resources
+      allowEmpty: false
+
+    syncOptions:
+      - CreateNamespace=true
+      - Validate=true
+      
+      # ApplyOutOfSyncOnly: Only apply resources that are OutOfSync
+      # - Improves performance by skipping resources already in desired state
+      # - Recommended for large applications with many resources
+      - ApplyOutOfSyncOnly=true
+      
+      # PrunePropagationPolicy: How to delete resources when pruning
+      # - foreground: Wait for resource to be fully deleted before proceeding
+      # - background: Delete immediately, don't wait
+      # - orphan: Keep resource but remove owner reference
+      - PrunePropagationPolicy=foreground
+
+# ══════════════════════════════════════════════════════════════════════════════
+# HOW SELF-HEALING WORKS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Step-by-Step Process:
+#
+# 1. Initial State:
+#    - Git defines: replicas: 3
+#    - Cluster has: 3 replicas running
+#    - Status: Synced ✅
+#
+# 2. Manual Change (Creating Drift):
+#    - Admin runs: kubectl scale deployment my-app --replicas=5
+#    - Cluster now has: 5 replicas
+#    - Git still defines: replicas: 3
+#    - Status: OutOfSync ⚠️
+#
+# 3. Drift Detection:
+#    - ArgoCD polls cluster every 5 seconds (default)
+#    - Compares actual state (5 replicas) with desired state (3 replicas)
+#    - Detects drift: actual ≠ desired
+#
+# 4. Self-Healing Action:
+#    - ArgoCD automatically triggers sync operation
+#    - Applies Git state to cluster
+#    - Scales deployment back to 3 replicas
+#    - Status: Synced ✅
+#
+# 5. Result:
+#    - Cluster matches Git within seconds
+#    - Manual change reverted
+#    - Git remains source of truth
+
+# Timeline:
+# ┌────────────────────────────────────────────────────────────────┐
+# │ Time  │ Event                                                   │
+# ├───────┼─────────────────────────────────────────────────────────┤
+# │ 0:00  │ Initial: 3 replicas (matches Git)                      │
+# │ 0:10  │ Admin: kubectl scale --replicas=5                      │
+# │ 0:11  │ Cluster: 5 replicas running (drift created)            │
+# │ 0:15  │ ArgoCD: Polls cluster, detects drift                   │
+# │ 0:16  │ ArgoCD: Triggers self-heal sync                        │
+# │ 0:17  │ Cluster: Scaling down to 3 replicas                    │
+# │ 0:20  │ Cluster: 3 replicas (matches Git again) ✅             │
+# └───────┴─────────────────────────────────────────────────────────┘
+
+# ══════════════════════════════════════════════════════════════════════════════
+# TYPES OF DRIFT DETECTED
+# ══════════════════════════════════════════════════════════════════════════════
+
+# 1. RESOURCE UPDATES (Most Common)
+#    Example: kubectl scale, kubectl edit, kubectl patch
+#    - Changing replica count
+#    - Modifying environment variables
+#    - Updating resource limits
+#    - Changing image tags
+#    Self-Heal: ✅ Reverts to Git values
+
+# 2. RESOURCE DELETION
+#    Example: kubectl delete deployment my-app
+#    - Someone deletes a resource that Git defines
+#    Self-Heal: ✅ Recreates the deleted resource
+
+# 3. UNMANAGED RESOURCE CREATION (with prune enabled)
+#    Example: kubectl apply -f extra-service.yaml
+#    - Creating resources not defined in Git
+#    Prune: ✅ Deletes the extra resource
+
+# 4. LABEL/ANNOTATION CHANGES
+#    Example: kubectl label pod my-pod temp=true
+#    Self-Heal: ✅ Removes the extra label
+
+# 5. CONFIGMAP/SECRET CHANGES
+#    Example: kubectl edit configmap my-config
+#    Self-Heal: ✅ Reverts to Git values
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SELF-HEALING DEMONSTRATION
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Test Self-Healing (After applying this manifest):
+
+# 1. Apply the application:
+#    kubectl apply -f 3_self_healing_application.yaml
+
+# 2. Wait for initial sync:
+#    argocd app wait self-healing-app
+
+# 3. Check initial replica count (assume Git says 3):
+#    kubectl get deployment -n production -o jsonpath='{.items[0].spec.replicas}'
+
+# 4. Create drift by manually scaling:
+#    kubectl scale deployment -n production --all --replicas=10
+
+# 5. Verify drift exists:
+#    kubectl get deployment -n production -o jsonpath='{.items[0].spec.replicas}'
+#    # Should show 10
+
+# 6. Watch self-healing in action:
+#    watch -n 1 'kubectl get deployment -n production'
+#    # Within 5-15 seconds, replicas will return to Git value (3)
+
+# 7. Check ArgoCD logs to see self-heal action:
+#    kubectl logs -n argocd deployment/argocd-application-controller | grep self-healing-app
+
+# 8. Verify final state matches Git:
+#    kubectl get deployment -n production -o jsonpath='{.items[0].spec.replicas}'
+#    # Should match Git value
+
+# ══════════════════════════════════════════════════════════════════════════════
+# SELF-HEALING VS MANUAL OPERATIONS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ┌────────────────────────┬─────────────────┬─────────────────────────────────┐
+# │ Operation              │ Self-Heal: OFF  │ Self-Heal: ON                   │
+# ├────────────────────────┼─────────────────┼─────────────────────────────────┤
+# │ kubectl scale          │ Change persists │ Reverted in 5-15 seconds        │
+# │ kubectl edit           │ Change persists │ Reverted in 5-15 seconds        │
+# │ kubectl patch          │ Change persists │ Reverted in 5-15 seconds        │
+# │ kubectl delete         │ Resource gone   │ Resource recreated              │
+# │ kubectl apply (new)    │ Resource added  │ Deleted if prune=true           │
+# │ Git commit + push      │ Manual sync     │ Auto-synced in 3 minutes        │
+# └────────────────────────┴─────────────────┴─────────────────────────────────┘
+
+# ══════════════════════════════════════════════════════════════════════════════
+# WHEN TO USE SELF-HEALING?
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ✅ ENABLE Self-Healing When:
+# - Production environments (strict control)
+# - Multi-team environments (prevent accidental changes)
+# - Compliance requirements (audit trail via Git)
+# - Disaster recovery scenarios (quick restoration)
+# - Demo environments (always pristine)
+
+# ❌ DISABLE Self-Healing When:
+# - Development environments (need quick testing)
+# - Debugging issues (need to manually modify resources)
+# - Initial setup/migration (frequent manual adjustments)
+# - Learning Kubernetes (experimenting with kubectl)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# REAL-WORLD EXAMPLE: PREVENTING PRODUCTION INCIDENTS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Scenario: Production E-commerce Platform
+#
+# Git Configuration:
+# deployment.yaml:
+#   replicas: 20
+#   resources:
+#     limits:
+#       cpu: "2"
+#       memory: "4Gi"
+#
+# Incident Timeline WITHOUT Self-Healing:
+# ─────────────────────────────────────────
+# 10:00 AM: Developer troubleshooting performance issue
+# 10:05 AM: Runs: kubectl scale deployment api --replicas=50
+# 10:10 AM: CPU/memory consumption skyrockets
+# 11:00 AM: Cluster runs out of resources, nodes crash
+# 11:30 AM: Incident declared, team scrambles to investigate
+# 12:00 PM: Someone discovers the manual scale command
+# 12:15 PM: Cluster restored after manual intervention
+# Result: 2+ hours of downtime 💥
+#
+# Incident Timeline WITH Self-Healing:
+# ────────────────────────────────────
+# 10:00 AM: Developer troubleshooting performance issue
+# 10:05 AM: Runs: kubectl scale deployment api --replicas=50
+# 10:05:15: ArgoCD detects drift
+# 10:05:20: ArgoCD reverts to replicas: 20
+# 10:05:30: Cluster returns to normal
+# Result: 30 seconds of drift, no incident 🎉
+
+# ══════════════════════════════════════════════════════════════════════════════
+# MONITORING SELF-HEALING EVENTS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# View self-healing events in ArgoCD UI:
+# 1. Go to application page
+# 2. Click on "Events" tab
+# 3. Look for "sync" operations with "self-heal" annotation
+
+# View via CLI:
+# argocd app get self-healing-app --show-operation
+
+# View Kubernetes events:
+# kubectl get events -n production --sort-by='.lastTimestamp'
+
+# View ArgoCD controller logs:
+# kubectl logs -n argocd -l app.kubernetes.io/name=argocd-application-controller \
+#   | grep "self-healing-app"
+
+# Set up alerts (Prometheus/Grafana):
+# - Alert when drift detected
+# - Alert when self-heal operations run
+# - Alert if self-heal fails
+# - Dashboard showing drift frequency
+
+/*
+KEY CONCEPTS:
+- SELF-HEALING = Automatic correction of drift from desired state
+- DRIFT = Difference between Git (desired) and cluster (actual) state
+- DRIFT DETECTION = ArgoCD polling cluster every 5s to detect changes
+- RECONCILIATION = Process of making actual state match desired state
+- PRUNE = Deleting resources that exist in cluster but not in Git
+- ALLOW EMPTY = Permit syncing when Git directory is empty
+- SOURCE OF TRUTH = Git repository containing desired state
+- MANUAL CHANGES = kubectl operations that create drift
+- SYNC OPERATION = Applying Git state to cluster
+- APPLY OUT OF SYNC ONLY = Only update resources that have drifted
+*/
