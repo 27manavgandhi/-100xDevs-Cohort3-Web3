@@ -1,0 +1,156 @@
+# Lecture Code - 1_basic_argocd_application.yaml
+# Topic: Creating a basic ArgoCD Application
+# Day 27.1 - GitOps and ArgoCD
+#
+# To use: kubectl apply -f 1_basic_argocd_application.yaml
+
+# ── What is an ArgoCD Application? ────────────────────────────────────────────
+#
+# An ArgoCD Application is a Kubernetes Custom Resource (CR) that represents
+# a deployed application. It defines:
+#   - WHERE the manifests are (source: Git repo, Helm chart, etc.)
+#   - WHERE to deploy them (destination: cluster and namespace)
+#   - HOW to sync (sync policy: manual, automatic, self-heal, etc.)
+#
+# Real-Life Analogy:
+#   Think of it like a subscription service. You subscribe to a magazine (Git repo),
+#   specify your address (destination cluster/namespace), and choose delivery
+#   options (sync policy) — automatic delivery, replace missing issues, etc.
+#
+# Why use ArgoCD Applications?
+#   1. DECLARATIVE: Define desired state, ArgoCD makes it happen
+#   2. AUTOMATED: Git changes automatically reflected in cluster
+#   3. AUDITABLE: All changes tracked via Git commits
+#   4. SELF-HEALING: Automatically corrects drift from desired state
+
+# ══════════════════════════════════════════════════════════════════════════════
+# BASIC ARGOCD APPLICATION
+# ══════════════════════════════════════════════════════════════════════════════
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  # Name of the application (will appear in ArgoCD UI)
+  name: simple-nginx-app
+  
+  # ArgoCD applications MUST be in the 'argocd' namespace
+  namespace: argocd
+  
+  # Optional: Add labels for organization
+  labels:
+    environment: development
+    team: platform
+
+spec:
+  # ── PROJECT ─────────────────────────────────────────────────────────────────
+  # ArgoCD projects provide multi-tenancy and RBAC
+  # 'default' project has no restrictions
+  project: default
+
+  # ── SOURCE ──────────────────────────────────────────────────────────────────
+  # Defines WHERE the Kubernetes manifests are located
+  source:
+    # Git repository URL (HTTPS or SSH)
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    
+    # Git revision to track (can be: branch, tag, or commit hash)
+    # - HEAD: Latest commit on default branch
+    # - main: Latest commit on main branch
+    # - v1.0.0: Specific tag
+    # - abc123: Specific commit hash
+    targetRevision: HEAD
+    
+    # Path within the repo where manifests are located
+    # Use '.' for root directory
+    path: guestbook
+
+  # ── DESTINATION ─────────────────────────────────────────────────────────────
+  # Defines WHERE to deploy the application
+  destination:
+    # Kubernetes cluster API server URL
+    # 'https://kubernetes.default.svc' refers to the same cluster where ArgoCD is installed
+    server: https://kubernetes.default.svc
+    
+    # Target namespace for deployment
+    namespace: default
+
+  # ── SYNC POLICY ─────────────────────────────────────────────────────────────
+  # Defines HOW to synchronize
+  # This is MANUAL sync (no 'automated' section)
+  syncPolicy:
+    # Additional sync options
+    syncOptions:
+      # Create namespace if it doesn't exist
+      - CreateNamespace=true
+
+# ══════════════════════════════════════════════════════════════════════════════
+# USAGE
+# ══════════════════════════════════════════════════════════════════════════════
+
+# 1. Apply this manifest:
+#    kubectl apply -f 1_basic_argocd_application.yaml
+
+# 2. Check application status:
+#    argocd app get simple-nginx-app
+#    OR
+#    kubectl get application -n argocd simple-nginx-app
+
+# 3. The application will show "OutOfSync" because it's manual sync
+#    You need to manually trigger sync via:
+#    - ArgoCD UI: Click the "Sync" button
+#    - CLI: argocd app sync simple-nginx-app
+
+# 4. After syncing, verify resources are created:
+#    kubectl get all -n default
+
+# 5. Delete the application (this will also delete deployed resources):
+#    kubectl delete -f 1_basic_argocd_application.yaml
+#    OR
+#    argocd app delete simple-nginx-app
+
+# ══════════════════════════════════════════════════════════════════════════════
+# WHAT HAPPENS AFTER APPLYING THIS?
+# ══════════════════════════════════════════════════════════════════════════════
+
+# 1. ArgoCD creates an Application resource in its database
+# 2. ArgoCD's Repository Server clones the Git repo
+# 3. ArgoCD compares desired state (Git) with actual state (cluster)
+# 4. ArgoCD UI shows the application with "OutOfSync" status
+# 5. You must manually trigger sync to deploy resources
+# 6. After sync, ArgoCD continuously monitors for drift
+
+# ══════════════════════════════════════════════════════════════════════════════
+# APPLICATION HEALTH STATUS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ArgoCD automatically determines application health based on resource types:
+#
+# Healthy:
+#   - Deployment: All replicas are ready
+#   - Service: Endpoints exist
+#   - Ingress: Ready
+#   - StatefulSet: All replicas ready
+#
+# Progressing:
+#   - Resources are being created/updated
+#   - Waiting for pods to become ready
+#
+# Degraded:
+#   - Deployment: Replicas not ready
+#   - Pod: CrashLoopBackOff, ImagePullBackOff, etc.
+#
+# Missing:
+#   - Resource defined in Git but doesn't exist in cluster
+
+/*
+KEY CONCEPTS:
+- APPLICATION = ArgoCD custom resource representing a deployed app
+- SOURCE = Location of Kubernetes manifests (Git repo)
+- DESTINATION = Target cluster and namespace for deployment
+- SYNC = Process of applying Git state to cluster
+- SYNC POLICY = Rules for how/when to sync (manual, auto, self-heal)
+- PROJECT = Multi-tenancy boundary with RBAC
+- HEALTH = Status of deployed resources (Healthy, Degraded, Progressing)
+- OUTOFFSYNC = Desired state (Git) differs from actual state (cluster)
+- MANUAL SYNC = Requires explicit user action to sync
+*/
