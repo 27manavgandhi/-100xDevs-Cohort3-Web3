@@ -1,0 +1,240 @@
+# Lecture Code - 2_automated_sync_application.yaml
+# Topic: ArgoCD Application with Automated Synchronization
+# Day 27.1 - GitOps and ArgoCD
+#
+# To use: kubectl apply -f 2_automated_sync_application.yaml
+
+# ── What is Automated Sync? ───────────────────────────────────────────────────
+#
+# Automated sync means ArgoCD automatically applies Git changes to the cluster
+# without manual intervention. When you push to Git, ArgoCD detects the change
+# and syncs automatically.
+#
+# Real-Life Analogy:
+#   Like a smart home system that automatically adjusts your lights and
+#   temperature based on a schedule (Git) without you manually pressing buttons.
+#   If you update the schedule, the home automatically follows the new rules.
+#
+# Why use automated sync?
+#   1. CONTINUOUS DELIVERY: Changes deploy automatically when merged
+#   2. REDUCED MANUAL WORK: No need to click "sync" every time
+#   3. FASTER FEEDBACK: See changes in cluster within minutes
+#   4. TRUE GITOPS: Git push = deployment (infrastructure as code)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# AUTOMATED SYNC APPLICATION
+# ══════════════════════════════════════════════════════════════════════════════
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: auto-sync-nginx-app
+  namespace: argocd
+  labels:
+    environment: staging
+    sync-mode: automated
+
+spec:
+  project: default
+
+  # ── SOURCE ──────────────────────────────────────────────────────────────────
+  source:
+    repoURL: https://github.com/argoproj/argocd-example-apps.git
+    targetRevision: HEAD
+    path: guestbook
+
+  # ── DESTINATION ─────────────────────────────────────────────────────────────
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: staging
+
+  # ── SYNC POLICY (AUTOMATED) ─────────────────────────────────────────────────
+  syncPolicy:
+    # ── AUTOMATED SECTION ───────────────────────────────────────────────────
+    # This enables automatic synchronization
+    automated:
+      # prune: Delete resources that exist in cluster but not in Git
+      # - If you remove a resource from Git, ArgoCD will delete it from cluster
+      # - Keeps cluster clean and matching Git exactly
+      prune: false
+      
+      # selfHeal: Automatically correct manual changes (drift detection)
+      # - If someone manually changes resources, ArgoCD reverts them to Git state
+      # - Ensures Git remains the single source of truth
+      selfHeal: false
+      
+      # allowEmpty: Allow sync even if Git directory is empty
+      # - Useful when starting fresh or cleaning up
+      allowEmpty: false
+
+    # ── SYNC OPTIONS ────────────────────────────────────────────────────────
+    syncOptions:
+      # Create namespace if it doesn't exist
+      - CreateNamespace=true
+      
+      # Validate resources before applying
+      - Validate=true
+      
+      # PrunePropagationPolicy: How to delete resources when pruning
+      # Options: foreground, background, orphan
+      - PrunePropagationPolicy=foreground
+      
+      # PruneLast: Delete resources only after new resources are healthy
+      - PruneLast=true
+
+    # ── RETRY STRATEGY ──────────────────────────────────────────────────────
+    # Retry failed syncs automatically
+    retry:
+      # Maximum number of retry attempts
+      limit: 5
+      
+      # Backoff strategy for retries
+      backoff:
+        # Initial retry delay
+        duration: 5s
+        
+        # Maximum retry delay
+        maxDuration: 3m
+        
+        # Multiply delay by this factor after each retry
+        factor: 2
+
+# ══════════════════════════════════════════════════════════════════════════════
+# HOW AUTOMATED SYNC WORKS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Step 1: ArgoCD polls Git repository every 3 minutes (default)
+# Step 2: If changes detected, ArgoCD compares Git state with cluster state
+# Step 3: If differences found, ArgoCD automatically applies changes
+# Step 4: Sync operation runs (create, update, or delete resources)
+# Step 5: ArgoCD verifies health of deployed resources
+# Step 6: Application status updated (Healthy, Degraded, Progressing)
+
+# Timeline Example:
+# ┌────────────────────────────────────────────────────────────────┐
+# │ Time │ Event                                                    │
+# ├──────┼──────────────────────────────────────────────────────────┤
+# │ 0:00 │ Developer pushes code to Git                            │
+# │ 0:30 │ ArgoCD polls Git (within 3 min polling interval)        │
+# │ 0:31 │ ArgoCD detects change, starts sync                      │
+# │ 0:32 │ Resources updated in cluster                            │
+# │ 0:35 │ New pods starting                                       │
+# │ 0:45 │ All pods ready, application status: Healthy             │
+# └──────┴──────────────────────────────────────────────────────────┘
+
+# ══════════════════════════════════════════════════════════════════════════════
+# USAGE EXAMPLES
+# ══════════════════════════════════════════════════════════════════════════════
+
+# 1. Apply this manifest:
+#    kubectl apply -f 2_automated_sync_application.yaml
+
+# 2. Check application status:
+#    argocd app get auto-sync-nginx-app
+
+# 3. Make a change in your Git repository:
+#    - Edit a manifest (e.g., change replica count)
+#    - Commit and push
+
+# 4. Watch ArgoCD automatically sync (within 3 minutes):
+#    argocd app watch auto-sync-nginx-app
+
+# 5. Or enable webhook for instant sync (no polling delay):
+#    - Configure webhook in Git repo pointing to ArgoCD
+#    - Changes sync in seconds instead of minutes
+
+# ══════════════════════════════════════════════════════════════════════════════
+# AUTOMATED SYNC OPTIONS EXPLAINED
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Option 1: Basic automated sync
+# syncPolicy:
+#   automated: {}
+# - Syncs automatically when Git changes
+# - Does NOT delete resources if removed from Git
+# - Does NOT revert manual changes
+
+# Option 2: Automated sync with prune
+# syncPolicy:
+#   automated:
+#     prune: true
+# - Syncs automatically
+# - DELETES resources not in Git (keeps cluster clean)
+# - Does NOT revert manual changes
+
+# Option 3: Automated sync with self-heal
+# syncPolicy:
+#   automated:
+#     selfHeal: true
+# - Syncs automatically
+# - Does NOT delete resources not in Git
+# - REVERTS manual changes (enforces Git as source of truth)
+
+# Option 4: Full automation (recommended for production)
+# syncPolicy:
+#   automated:
+#     prune: true
+#     selfHeal: true
+# - Syncs automatically
+# - DELETES resources not in Git
+# - REVERTS manual changes
+# - Full GitOps compliance
+
+# ══════════════════════════════════════════════════════════════════════════════
+# WHEN TO USE WHICH SYNC MODE?
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ┌─────────────────┬──────────────┬───────┬───────────┬─────────────────────┐
+# │ Environment     │ Automated    │ Prune │ SelfHeal  │ Use Case            │
+# ├─────────────────┼──────────────┼───────┼───────────┼─────────────────────┤
+# │ Development     │ No (manual)  │ No    │ No        │ Frequent testing    │
+# │ Development     │ Yes          │ No    │ No        │ Quick iterations    │
+# │ Staging         │ Yes          │ Yes   │ No        │ Pre-prod testing    │
+# │ Production      │ Yes          │ Yes   │ Yes       │ Strict control      │
+# │ Demo/Sandbox    │ Yes          │ Yes   │ Yes       │ Always clean        │
+# └─────────────────┴──────────────┴───────┴───────────┴─────────────────────┘
+
+# ══════════════════════════════════════════════════════════════════════════════
+# REAL-WORLD EXAMPLE
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Scenario: E-commerce platform with microservices
+#
+# Repository Structure:
+# microservices-config/
+# ├── frontend/
+# │   ├── deployment.yaml (replicas: 5)
+# │   └── service.yaml
+# ├── api/
+# │   ├── deployment.yaml (replicas: 10)
+# │   └── service.yaml
+# └── database/
+#     ├── statefulset.yaml
+#     └── service.yaml
+#
+# Workflow:
+# 1. Developer updates frontend/deployment.yaml (replicas: 5 -> 8)
+# 2. Developer commits and pushes to Git
+# 3. Within 3 minutes, ArgoCD polls Git
+# 4. ArgoCD detects change in frontend deployment
+# 5. ArgoCD automatically syncs (updates deployment)
+# 6. Kubernetes scales from 5 to 8 replicas
+# 7. Health check: All 8 pods become ready
+# 8. Application status: Healthy
+#
+# No manual kubectl commands needed!
+# No CI/CD pipeline pushing to cluster!
+# Git is the source of truth!
+
+/*
+KEY CONCEPTS:
+- AUTOMATED SYNC = ArgoCD automatically applies Git changes to cluster
+- POLLING = ArgoCD checks Git every 3 minutes for changes
+- WEBHOOK = Git notifies ArgoCD instantly on changes (faster than polling)
+- PRUNE = Delete resources in cluster that don't exist in Git
+- SELF-HEAL = Revert manual changes to match Git state
+- DRIFT = Difference between Git (desired) and cluster (actual) state
+- SYNC WINDOW = Optional time restrictions for when syncs can happen
+- RETRY STRATEGY = Automatically retry failed sync operations
+- SYNC OPTIONS = Additional controls for how sync behaves
+*/
