@@ -253,3 +253,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
 
   - 📖 [Slides & Notes](./Day%2026%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2026%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed/26.1%20-%20PDAs%20Bumps%20and%20invoke_signed%20Assignment.md)
+
+
+### 📚 [**Day 27 - GitOps and ArgoCD**](./Day%2027%20-%20GitOps%20and%20ArgoCD/)
+
+- 💻 [**27.1 - GitOps and ArgoCD**](./Day%2027%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2027%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2027%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2027%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD%20Assignment.md)
