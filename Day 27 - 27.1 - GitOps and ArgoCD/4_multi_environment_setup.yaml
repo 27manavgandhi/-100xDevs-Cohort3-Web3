@@ -1,0 +1,460 @@
+# Lecture Code - 4_multi_environment_setup.yaml
+# Topic: Multi-Environment GitOps with Kustomize and ArgoCD
+# Day 27.1 - GitOps and ArgoCD
+#
+# To use: kubectl apply -f 4_multi_environment_setup.yaml
+
+# ── What is Multi-Environment Setup? ──────────────────────────────────────────
+#
+# Multi-environment setup means managing different environments (dev, staging, prod)
+# with shared base configurations but environment-specific customizations.
+#
+# Real-Life Analogy:
+#   Like a restaurant chain. Each location (environment) shares the same menu
+#   (base configuration) but customizes portions, prices, and decorations
+#   (overlays) based on local preferences.
+#
+# Why use multi-environment setup?
+#   1. DRY PRINCIPLE: Don't repeat base configurations
+#   2. CONSISTENCY: Same core configs across all environments
+#   3. ENVIRONMENT-SPECIFIC: Customize replicas, resources, domains per env
+#   4. EASY PROMOTION: Test in dev, promote to staging, then prod
+#   5. SINGLE REPOSITORY: Manage all environments from one repo
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DIRECTORY STRUCTURE (Kustomize-based)
+# ══════════════════════════════════════════════════════════════════════════════
+
+# my-app-gitops/
+# ├── base/                          # Shared base configuration
+# │   ├── kustomization.yaml         # Base kustomization file
+# │   ├── deployment.yaml            # Base deployment (2 replicas)
+# │   ├── service.yaml               # Base service
+# │   └── namespace.yaml             # Base namespace
+# └── overlays/                      # Environment-specific customizations
+#     ├── dev/
+#     │   ├── kustomization.yaml     # Dev customizations
+#     │   ├── replicas-patch.yaml    # 1 replica for dev
+#     │   └── resources-patch.yaml   # Small resources for dev
+#     ├── staging/
+#     │   ├── kustomization.yaml     # Staging customizations
+#     │   ├── replicas-patch.yaml    # 3 replicas for staging
+#     │   └── resources-patch.yaml   # Medium resources
+#     └── prod/
+#         ├── kustomization.yaml     # Production customizations
+#         ├── replicas-patch.yaml    # 10 replicas for production
+#         ├── resources-patch.yaml   # Large resources
+#         └── ingress-patch.yaml     # Production domain
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ARGOCD APPLICATION FOR DEVELOPMENT ENVIRONMENT
+# ══════════════════════════════════════════════════════════════════════════════
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-dev
+  namespace: argocd
+  labels:
+    environment: dev
+    app: my-app
+
+spec:
+  project: default
+
+  # ── SOURCE (Dev Overlay) ────────────────────────────────────────────────────
+  source:
+    repoURL: https://github.com/myorg/my-app-gitops.git
+    targetRevision: main
+    # Point to dev overlay directory
+    path: overlays/dev
+
+  # ── DESTINATION (Dev Namespace) ─────────────────────────────────────────────
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: my-app-dev
+
+  # ── SYNC POLICY (Automated for dev) ─────────────────────────────────────────
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+---
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ARGOCD APPLICATION FOR STAGING ENVIRONMENT
+# ══════════════════════════════════════════════════════════════════════════════
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-staging
+  namespace: argocd
+  labels:
+    environment: staging
+    app: my-app
+
+spec:
+  project: default
+
+  # ── SOURCE (Staging Overlay) ────────────────────────────────────────────────
+  source:
+    repoURL: https://github.com/myorg/my-app-gitops.git
+    targetRevision: main
+    # Point to staging overlay directory
+    path: overlays/staging
+
+  # ── DESTINATION (Staging Namespace) ─────────────────────────────────────────
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: my-app-staging
+
+  # ── SYNC POLICY (Automated for staging) ────────────────────────────────────
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+
+---
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ARGOCD APPLICATION FOR PRODUCTION ENVIRONMENT
+# ══════════════════════════════════════════════════════════════════════════════
+
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-prod
+  namespace: argocd
+  labels:
+    environment: production
+    app: my-app
+
+spec:
+  project: default
+
+  # ── SOURCE (Production Overlay) ─────────────────────────────────────────────
+  source:
+    repoURL: https://github.com/myorg/my-app-gitops.git
+    # Use a stable tag or branch for production
+    targetRevision: release-v1.0
+    # Point to production overlay directory
+    path: overlays/prod
+
+  # ── DESTINATION (Production Namespace) ──────────────────────────────────────
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: my-app-prod
+
+  # ── SYNC POLICY (Manual for production - require approval) ─────────────────
+  syncPolicy:
+    # Manual sync for production (safety measure)
+    # Could also use automated with sync windows for controlled deployment times
+    syncOptions:
+      - CreateNamespace=true
+    
+    # Optional: Sync windows to control when syncs can happen
+    syncWindows:
+    - kind: allow
+      schedule: '0 10 * * *'  # Allow syncs at 10 AM daily
+      duration: 2h
+      applications:
+      - my-app-prod
+
+# ══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE BASE CONFIGURATION
+# ══════════════════════════════════════════════════════════════════════════════
+
+# File: base/deployment.yaml
+# ────────────────────────────────────────────────────────────────────────────
+#
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: my-app
+# spec:
+#   replicas: 2  # Base: 2 replicas (will be overridden per environment)
+#   selector:
+#     matchLabels:
+#       app: my-app
+#   template:
+#     metadata:
+#       labels:
+#         app: my-app
+#     spec:
+#       containers:
+#       - name: app
+#         image: myorg/my-app:latest
+#         ports:
+#         - containerPort: 8080
+#         resources:
+#           requests:
+#             cpu: "100m"      # Base: Small resources
+#             memory: "128Mi"
+#           limits:
+#             cpu: "200m"
+#             memory: "256Mi"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE KUSTOMIZE OVERLAY (Dev)
+# ══════════════════════════════════════════════════════════════════════════════
+
+# File: overlays/dev/kustomization.yaml
+# ────────────────────────────────────────────────────────────────────────────
+#
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+#
+# # Reference base configuration
+# resources:
+# - ../../base
+#
+# # Namespace for dev environment
+# namespace: my-app-dev
+#
+# # Patches for dev environment
+# patchesStrategicMerge:
+# - replicas-patch.yaml
+# - resources-patch.yaml
+#
+# # Common labels for all resources in dev
+# commonLabels:
+#   environment: dev
+#
+# # Image tag override for dev
+# images:
+# - name: myorg/my-app
+#   newTag: dev-latest
+
+# File: overlays/dev/replicas-patch.yaml
+# ────────────────────────────────────────────────────────────────────────────
+#
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: my-app
+# spec:
+#   replicas: 1  # Dev: Only 1 replica needed
+
+# File: overlays/dev/resources-patch.yaml
+# ────────────────────────────────────────────────────────────────────────────
+#
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: my-app
+# spec:
+#   template:
+#     spec:
+#       containers:
+#       - name: app
+#         resources:
+#           requests:
+#             cpu: "50m"       # Dev: Very small resources
+#             memory: "64Mi"
+#           limits:
+#             cpu: "100m"
+#             memory: "128Mi"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# EXAMPLE KUSTOMIZE OVERLAY (Production)
+# ══════════════════════════════════════════════════════════════════════════════
+
+# File: overlays/prod/kustomization.yaml
+# ────────────────────────────────────────────────────────────────────────────
+#
+# apiVersion: kustomize.config.k8s.io/v1beta1
+# kind: Kustomization
+#
+# resources:
+# - ../../base
+#
+# namespace: my-app-prod
+#
+# patchesStrategicMerge:
+# - replicas-patch.yaml
+# - resources-patch.yaml
+# - ingress-patch.yaml
+#
+# commonLabels:
+#   environment: production
+#
+# images:
+# - name: myorg/my-app
+#   newTag: v1.0.0  # Production: Use stable version tag
+
+# File: overlays/prod/replicas-patch.yaml
+# ────────────────────────────────────────────────────────────────────────────
+#
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: my-app
+# spec:
+#   replicas: 10  # Production: 10 replicas for high availability
+
+# File: overlays/prod/resources-patch.yaml
+# ────────────────────────────────────────────────────────────────────────────
+#
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: my-app
+# spec:
+#   template:
+#     spec:
+#       containers:
+#       - name: app
+#         resources:
+#           requests:
+#             cpu: "500m"      # Production: Large resources
+#             memory: "1Gi"
+#           limits:
+#             cpu: "2"
+#             memory: "4Gi"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ENVIRONMENT COMPARISON TABLE
+# ══════════════════════════════════════════════════════════════════════════════
+
+# ┌────────────────┬──────────┬──────────┬──────────────┐
+# │ Configuration  │ Dev      │ Staging  │ Production   │
+# ├────────────────┼──────────┼──────────┼──────────────┤
+# │ Replicas       │ 1        │ 3        │ 10           │
+# │ CPU Request    │ 50m      │ 100m     │ 500m         │
+# │ Memory Request │ 64Mi     │ 128Mi    │ 1Gi          │
+# │ Image Tag      │ dev-xxx  │ staging  │ v1.0.0       │
+# │ Domain         │ dev.app  │ stg.app  │ app.com      │
+# │ Sync Mode      │ Auto     │ Auto     │ Manual       │
+# │ Self-Heal      │ Yes      │ Yes      │ Yes          │
+# │ Sync Window    │ Always   │ Always   │ 10AM-12PM    │
+# │ Branch/Tag     │ main     │ main     │ release-v1.0 │
+# └────────────────┴──────────┴──────────┴──────────────┘
+
+# ══════════════════════════════════════════════════════════════════════════════
+# PROMOTION WORKFLOW
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Standard promotion workflow:
+#
+# 1. DEVELOPMENT:
+#    - Developer commits code
+#    - CI builds image: myorg/my-app:dev-abc123
+#    - Update overlays/dev/kustomization.yaml with new tag
+#    - ArgoCD auto-syncs to dev environment
+#    - Developer tests in dev
+#
+# 2. STAGING:
+#    - Tests pass in dev
+#    - Update overlays/staging/kustomization.yaml with same tag
+#    - ArgoCD auto-syncs to staging
+#    - QA team tests in staging
+#
+# 3. PRODUCTION:
+#    - Tests pass in staging
+#    - Tag the image: myorg/my-app:v1.0.0
+#    - Update overlays/prod/kustomization.yaml with v1.0.0
+#    - Create PR for production deployment
+#    - After approval, merge PR
+#    - ArgoCD syncs to production (manual or scheduled)
+
+# Example Git workflow:
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# git checkout -b feature/new-feature
+# # Make changes to base/ or overlays/
+# git commit -m "feat: add new feature"
+# git push origin feature/new-feature
+#
+# # PR to main → affects dev and staging
+# # After testing, create PR to release branch
+# git checkout -b release-v1.1
+# git push origin release-v1.1
+#
+# # Update production to use release-v1.1 branch
+
+# ══════════════════════════════════════════════════════════════════════════════
+# USAGE INSTRUCTIONS
+# ══════════════════════════════════════════════════════════════════════════════
+
+# 1. Create your Git repository with the structure shown above
+
+# 2. Apply all three ArgoCD applications:
+#    kubectl apply -f 4_multi_environment_setup.yaml
+
+# 3. Verify all applications are created:
+#    argocd app list
+
+# 4. Sync each environment:
+#    argocd app sync my-app-dev
+#    argocd app sync my-app-staging
+#    argocd app sync my-app-prod
+
+# 5. View all environments in UI:
+#    Open ArgoCD UI and see all three apps
+#    Each shows its own namespace, resources, and sync status
+
+# 6. Make a change and promote:
+#    # Update dev
+#    edit overlays/dev/replicas-patch.yaml
+#    git commit -am "scale dev to 2 replicas"
+#    git push
+#    # Dev syncs automatically
+#
+#    # After testing, promote to staging
+#    edit overlays/staging/replicas-patch.yaml
+#    git commit -am "scale staging to 5 replicas"
+#    git push
+#    # Staging syncs automatically
+#
+#    # After approval, promote to prod
+#    edit overlays/prod/replicas-patch.yaml
+#    git commit -am "scale prod to 15 replicas"
+#    # Create PR, get approval, merge
+#    # Manually sync or wait for sync window
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ADVANCED: USING ARGOCD APP OF APPS PATTERN
+# ══════════════════════════════════════════════════════════════════════════════
+
+# Instead of applying each application separately, use "App of Apps" pattern:
+#
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: my-app-environments
+#   namespace: argocd
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://github.com/myorg/my-app-gitops.git
+#     targetRevision: main
+#     path: argocd-apps  # Directory containing all app manifests
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: argocd
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#
+# This single "parent" app manages all environment applications!
+
+/*
+KEY CONCEPTS:
+- MULTI-ENVIRONMENT = Managing dev, staging, prod from single repo
+- KUSTOMIZE = Tool for customizing Kubernetes manifests (overlays)
+- BASE = Shared configuration used by all environments
+- OVERLAY = Environment-specific customizations
+- PATCH = YAML snippet that modifies base configuration
+- PROMOTION = Moving code/config from dev → staging → prod
+- SYNC WINDOW = Time restrictions for when syncs can occur
+- APP OF APPS = Pattern where one app manages multiple apps
+- DRY (DON'T REPEAT YOURSELF) = Share common config, customize only differences
+- TARGET REVISION = Git branch, tag, or commit to deploy from
+*/
