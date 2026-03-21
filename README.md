@@ -262,3 +262,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2027%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2027%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2027%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD/27.1%20-%20GitOps%20and%20ArgoCD%20Assignment.md)
+
+
+### 📚 [**Day 28 - Anchor vs Raw Contracts**](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/)
+
+- 💻 [**28.1 - Anchor vs Raw Contracts**](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts%20Assignment.md)
