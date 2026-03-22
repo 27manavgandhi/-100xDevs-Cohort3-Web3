@@ -271,3 +271,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2028%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts/28.1%20-%20Anchor%20vs%20Raw%20Contracts%20Assignment.md)
+
+
+### 📚 [**Day 29 - Anchor Part 2 - CPIs**](./Day%2029%20-%20Anchor%20CPIs/)
+
+- 💻 [**29.1 - Cross-Program Invocations**](./Day%2029%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2029%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2029%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2029%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs%20Assignment.md)
