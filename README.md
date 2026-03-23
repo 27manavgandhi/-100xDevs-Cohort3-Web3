@@ -286,6 +286,6 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
 
 - 💻 [**30.1 - Program Derived Addresses**](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/)
 
-  - 👨‍💻 [Lecture Codes](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/Lecture%20Codes/)
+  - 👨‍💻 [Lecture Code](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs%20Assignment.md)
