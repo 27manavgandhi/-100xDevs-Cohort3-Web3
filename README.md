@@ -280,3 +280,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2029%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2029%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2029%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs/29.1%20-%20Anchor%20CPIs%20Assignment.md)
+
+
+### 📚 [**Day 30 - Anchor Part 3 - PDAs**](./Day%2030%20-%20Anchor%20PDAs/)
+
+- 💻 [**30.1 - Program Derived Addresses**](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs%20Assignment.md)
