@@ -289,3 +289,10 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Code](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2030%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs/30.1%20-%20Anchor%20PDAs%20Assignment.md)
+### 📚 [**Day 31 - Private Key Management**](./Day%2031%20-%20Private%20Key%20Management/)
+
+- 💻 [**31.1 - Private Key Management**](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management%20Assignment.md)
