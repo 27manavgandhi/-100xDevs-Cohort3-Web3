@@ -296,3 +296,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management%20Assignment.md)
+
+
+### 📚 [**Day 33 - Telegram Trading Bot**](./Day%2033%20-%20Telegram%20Trading%20Bot/)
+
+- 💻 [**33.1 - Telegram Trading Bot**](./Day%2033%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2033%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2033%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2033%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot%20Assignment.md)
