@@ -305,3 +305,12 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2033%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2033%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2033%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot/33.1%20-%20Telegram%20Trading%20Bot%20Assignment.md)
+
+
+### 📚 [**Day 34 - Advanced Trading Bot Features**](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/)
+
+- 💻 [**34.1 - Advanced Trading Bot Features**](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features%20Assignment.md)
