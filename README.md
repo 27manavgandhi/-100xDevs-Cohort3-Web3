@@ -297,6 +297,14 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 📖 [Slides & Notes](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2031%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management/31.1%20-%20Private%20Key%20Management%20Assignment.md)
 
+### 📚 [**Day 32 - Indexing Solana Accounts**](./Day%2032%20-%20Indexing%20Solana%20Accounts/)
+
+- 💻 [**32.1 - Indexing Solana Accounts**](./Day%2032%20-%20Indexing%20Solana%20Accounts/32.1%20-%20Indexing%20Solana%20Accounts/)
+
+  - 👨‍💻 [Lecture Codes](./Day%2032%20-%20Indexing%20Solana%20Accounts/32.1%20-%20Indexing%20Solana%20Accounts/Lecture%20Codes/)
+  - 📖 [Slides & Notes](./Day%2032%20-%20Indexing%20Solana%20Accounts/32.1%20-%20Indexing%20Solana%20Accounts/32.1%20-%20Indexing%20Solana%20Accounts%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2032%20-%20Indexing%20Solana%20Accounts/32.1%20-%20Indexing%20Solana%20Accounts/32.1%20-%20Indexing%20Solana%20Accounts%20Assignment.md)
+
 
 ### 📚 [**Day 33 - Telegram Trading Bot**](./Day%2033%20-%20Telegram%20Trading%20Bot/)
 
