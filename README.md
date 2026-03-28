@@ -322,3 +322,25 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
   - 👨‍💻 [Lecture Codes](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features/Lecture%20Codes/)
   - 📖 [Slides & Notes](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features%20Slides%20%26%20Notes.md)
   - 📝 [Assignment](./Day%2034%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features/34.1%20-%20Advanced%20Trading%20Bot%20Features%20Assignment.md)
+
+
+### 📚 [**Day 35 - Career Path & Community Guidance**](./Day%2035%20-%20Career%20Path%20and%20Community%20Q&A/)
+
+- 💻 [**35.1 - Career Path Planning**](./Day%2035%20-%20Career%20Path%20and%20Community%20Q&A/35.1%20-%20Career%20Path%20and%20Community%20Q&A/)
+
+  - 📁 [Project Templates](./Day%2035%20-%20Career%20Path%20and%20Community%20Q&A/35.1%20-%20Career%20Path%20and%20Community%20Q&A/Project%20Templates/)
+  - 📖 [Slides & Notes](./Day%2035%20-%20Career%20Path%20and%20Community%20Q&A/35.1%20-%20Career%20Path%20and%20Community%20Q&A/35.1%20-%20Career%20Path%20and%20Community%20Q&A%20Slides%20%26%20Notes.md)
+  - 📝 [Assignment](./Day%2035%20-%20Career%20Path%20and%20Community%20Q&A/35.1%20-%20Career%20Path%20and%20Community%20Q&A/35.1%20-%20Career%20Path%20and%20Community%20Q&A%20Assignment.md)
+  
+---
+
+## 🎓 **Web3 Fundamentals Complete!**
+
+**Congratulations!** You've completed all 35 days of the Web3 track covering blockchain fundamentals, smart contracts, DeFi protocols, and real-world applications. Now it's time to apply your knowledge and build impressive projects!
+
+**Next Steps**:
+1. Review Day 35 for career path options
+2. Choose your specialization
+3. Start your first portfolio project
+4. Engage with the community for guidance
+5. Keep building! 🚀
