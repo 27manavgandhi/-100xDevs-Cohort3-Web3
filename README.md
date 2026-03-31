@@ -338,9 +338,3 @@ git clone https://github.com/27manavgandhi/100xDevs-Cohort3-WebDev-and-Devops.gi
 
 **Congratulations!** You've completed all 35 days of the Web3 track covering blockchain fundamentals, smart contracts, DeFi protocols, and real-world applications. Now it's time to apply your knowledge and build impressive projects!
 
-**Next Steps**:
-1. Review Day 35 for career path options
-2. Choose your specialization
-3. Start your first portfolio project
-4. Engage with the community for guidance
-5. Keep building! 🚀
